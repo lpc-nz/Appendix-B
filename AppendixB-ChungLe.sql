@@ -13,9 +13,9 @@ WHERE guest_id = 1540;
 GO
 
 --Q3
-SELECT first_name AS 'First Name',
-			last_name AS 'Last Name', 
-			arrival_time AS 'Arrival Time'
+SELECT arrival_time AS 'Arrival Time',
+			first_name AS 'First Name',
+			last_name AS 'Last Name'	
 FROM booking
 INNER JOIN guest
 ON booking.guest_id = guest.id
@@ -30,7 +30,7 @@ SELECT booking_id AS 'Booking ID',
 			amount AS 'Amount'
 FROM booking
 INNER JOIN rate
-ON booking.room_type_requested = rate.room_type
+ON booking.room_type_requested = rate.room_type AND  booking.occupants = rate.occupancy
 WHERE booking_id IN (5152, 5165, 5154, 5295);
 GO
 
